@@ -1,0 +1,12 @@
+:local .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8px 8px 25px;
+    font-size: 4.5vmax;
+    background-color: #ffbb75c2;
+    height: auto;
+}
+
+:local .button {
+    font-size: 3vmax !important;
+}

@@ -1,0 +1,31 @@
+:local .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    width: 100%;
+}
+
+:local .laodingImg {
+    max-height: 50%;
+    align-self: center;
+}
+
+:local .img {
+    max-height: 50%;
+}
+
+:local .title {
+    font-weight: bold;
+    font-size: 4vmin;
+}
+
+:local .details {
+    font-size: 3vmin;
+    overflow-y: auto;
+}
+
+:local .button {
+    font-size: 4.5vmin !important;
+    margin-top: 12px;
+}

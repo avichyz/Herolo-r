@@ -1,0 +1,17 @@
+:local .root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+:local .card {
+    display: flex;
+    height: 100%;
+}
+
+:local .listAndItemDisplay {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}

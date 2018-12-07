@@ -1,0 +1,36 @@
+:local .root {
+    margin: 5% 5% 0% 5%;
+}
+
+:local .width100 {
+    width: 100%;
+}
+
+:local .form {
+    display: flex;
+    flex-direction: column;
+}
+
+:local .cardContent {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+:local .textField {
+    width: 200;
+}
+
+:local .textBoxes {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+:local .actionButtons {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 24px;
+}

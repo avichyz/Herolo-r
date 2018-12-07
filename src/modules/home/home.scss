@@ -1,0 +1,23 @@
+:local .root {
+    height: 100%;
+    width: 100%;
+    margin: 10% 10% 0 10%;
+}
+
+:local .movieImage {
+    border-radius: 50% 50% 50% 50%;
+    height: 100%;
+    width: 50vw;
+}
+
+:local .title {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-size: -webkit-xxx-large;
+}
+
+:local .imageContainer {
+    display: flex;
+    justify-content: space-around;
+}
