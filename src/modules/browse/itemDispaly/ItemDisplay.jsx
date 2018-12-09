@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import EditContainer from '../../createOrEdit/EditContainer';
 import loading from '../../../assets/loading.gif';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Modal from '@material-ui/core/Modal';
 import styles from './itemDisplay.scss';
 
@@ -38,11 +39,7 @@ class ItemDisplay extends Component {
             <div className={styles.container}>
                 {
                     id && !poster &&
-                    <img
-                        className={styles.img}
-                        src={loading}
-                        alt="">
-                    </img> ||
+                    <CircularProgress className={styles.cProgress}/> ||
                     <Fragment>
                         <img
                             className={styles.img}

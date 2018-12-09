@@ -1,5 +1,5 @@
 :local .root {
-    margin: 5% 5% 0% 5%;
+    height: 100%;
 }
 
 :local .width100 {
@@ -9,13 +9,18 @@
 :local .form {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 :local .cardContent {
-    height: 100vh;
+    height: 100%;
     overflow-y: auto;
 }
 
+:local .textFieldContainer{
+    display: flex;
+    flex-direction: column;
+}
 :local .textField {
     width: 200;
 }
@@ -24,6 +29,7 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    height: calc(100% - 55px - 24px - 24px);
 }
 
 :local .actionButtons {

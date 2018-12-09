@@ -3,16 +3,18 @@ import { connect } from 'react-redux'
 import { addMovie } from '../../redux/actions';
 import CreateOrEdit from './CreateOrEdit';
 import styles from './createOrEdit.scss';
-import { MuiThemeProvider } from '@material-ui/core';
 
 class CreateContainer extends React.Component {
 
-    handleSaveNewMovie = (title, director, year, runtime, genre, poster) => {
+    handleSaveNewMovie = (values) => {
+        const { title, director, year, runtime, genre, poster } = values;
+
         if (this.props.movies.find(mov => mov.title === title))
             throw "Movie name already exists!";
 
         this.props.saveNewMovie(title, director, year, runtime, genre, poster)
         this.props.handleCloseDialog();
+
     }
 
     render() {
@@ -21,13 +23,14 @@ class CreateContainer extends React.Component {
                 className={styles.width100}
                 handleSave={this.handleSaveNewMovie}
                 handleCloseDialog={this.props.handleCloseDialog}
+                onSubmit={this.handleSaveNewMovie}
             />
         );
     }
 }
 
 const mapStateToProps = state => ({
-    movies: state.movies
+    movies: state.movies.movies
 })
 
 

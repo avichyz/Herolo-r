@@ -50,15 +50,14 @@ class ItemDisplayContainer extends Component {
                 year={year}
                 director={director}
                 runtime={runtime}
-                genre={genre}
-                />
+                genre={genre}/>
         )
     }
 }
 
 
 const mapStateToProps = state => ({
-    movies: state.movies
+    movies: state.movies.movies
 })
 
 export default connect(

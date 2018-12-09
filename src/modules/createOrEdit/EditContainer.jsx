@@ -21,15 +21,22 @@ class EditContainer extends React.Component {
     }
 
     componentDidMount() {
-        if(this.props.id) {
+        if (this.props.id) {
             this.loadData(this.props.id);
         }
     }
+    handleSubmit = (values) => {
+        this.props.editExistedMovie(values.title, values.year, values.genre,
+            values.runtime, values.director, values.poster,
+            this.props.id)
+        this.props.handleCloseDialog();
+    }
+
     render() {
         return (
             <CreateOrEdit
-                movie={this.state}
-                handleSave={this.props.editExistedMovie}
+                initialValues={this.state}
+                onSubmit={this.handleSubmit}
                 handleCloseDialog={this.props.handleCloseDialog}
             />
         );
@@ -37,12 +44,12 @@ class EditContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    movies: state.movies
+    movies: state.movies.movies
 })
 
 const mapDispatchToProps = dispatch => ({
     editExistedMovie: (title, year, genre, runtime, director, poster, id) =>
-        dispatch(editMovie(id,title, year, genre, runtime, director, poster))
+        dispatch(editMovie(id, title, year, genre, runtime, director, poster))
 })
 
 export default connect(
