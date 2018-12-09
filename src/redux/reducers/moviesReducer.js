@@ -1,4 +1,7 @@
-import { ADD_MOVIE, EDIT_MOVIE, REMOVE_MOVIE,SELECT_MOVIE, FILTER_MOVIES, LOAD_MOVIES,LOAD_MOVIE_DATA } from '../actions/actionTypes';
+import { 
+  ADD_MOVIE, EDIT_MOVIE, REMOVE_MOVIE,
+  SELECT_MOVIE, CLEAR_SELECTED, FILTER_MOVIES, 
+  LOAD_MOVIES,LOAD_MOVIE_DATA } from '../actions/actionTypes';
 
 let initialState = [];
 
@@ -17,6 +20,11 @@ function movieApp(state = initialState, action) {
     case SELECT_MOVIE:
       return Object.assign({}, state, {
         selectedId: action.id
+      })
+
+    case CLEAR_SELECTED:
+      return Object.assign({}, state, {
+        selectedId: null
       })
 
     case FILTER_MOVIES:
@@ -64,8 +72,6 @@ function movieApp(state = initialState, action) {
       return state
   }
 }
-
-
 
 export default movieApp;
 

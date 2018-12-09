@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import EditContainer from '../../createOrEdit/EditContainer';
-import loading from '../../../assets/loading.gif';
+import DeletePrompt from './DeletePrompt';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Modal from '@material-ui/core/Modal';
 import styles from './itemDisplay.scss';
@@ -17,21 +17,29 @@ class ItemDisplay extends Component {
         genre: PropTypes.string,
         runtime: PropTypes.string,
         director: PropTypes.string,
+        
     }
 
     state = {
-        opened: false
+        editOpened: false,
+        deleteOpened: false
     }
 
     handleClose = () => {
-        this.setState({ opened: false })
+        this.setState({ editOpened: false })
     }
 
     onOpen = () => {
-        this.setState({ opened: true })
+        this.setState({ editOpened: true })
     }
 
+    openDeleteDialog = () => {
+        this.setState({ deleteOpened: true })
+    }
 
+    closeDeleteDialog = () => {
+        this.setState({ deleteOpened: false })
+    }
     render() {
 
         const { title, id, year, runtime, genre, poster, director } = this.props;
@@ -39,7 +47,7 @@ class ItemDisplay extends Component {
             <div className={styles.container}>
                 {
                     id && !poster &&
-                    <CircularProgress className={styles.cProgress}/> ||
+                    <CircularProgress className={styles.cProgress} /> ||
                     <Fragment>
                         <img
                             className={styles.img}
@@ -65,16 +73,30 @@ class ItemDisplay extends Component {
                         </div>
                     </Fragment>
                 }
+
+                <div className={styles.buttons}>
                 <Button color="primary"
                     onClick={this.onOpen}
                     className={styles.button}>
                     Edit
                 </Button>
+                <Button color="primary"
+                        onClick={this.openDeleteDialog}
+                    className={styles.button}>
+                    Delete
+                </Button>
+                </div>
+
+                <DeletePrompt
+                    open={this.state.deleteOpened}
+                    onClose={this.closeDeleteDialog}
+                    onDelete={this.props.onDelete}
+                    id={id} />
 
                 <Modal
                     aria-labelledby="simple-modal-title"
                     aria-describedby="simple-modal-description"
-                    open={this.state.opened}
+                    open={this.state.editOpened}
                     onClose={this.handleClose}>
                     <EditContainer
                         handleCloseDialog={this.handleClose}

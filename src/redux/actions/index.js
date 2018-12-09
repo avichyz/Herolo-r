@@ -1,6 +1,7 @@
 
 import { searchMovies, getMovieById } from '../../managers/moviesServiceManager';
-import { ADD_MOVIE, EDIT_MOVIE, SELECT_MOVIE, FILTER_MOVIES, LOAD_MOVIES, LOAD_MOVIE_DATA } from './actionTypes';
+import { ADD_MOVIE, EDIT_MOVIE, REMOVE_MOVIE, SELECT_MOVIE, FILTER_MOVIES, 
+  LOAD_MOVIES, LOAD_MOVIE_DATA, CLEAR_SELECTED } from './actionTypes';
 
 
 export function loadMoviesWithData() {
@@ -36,9 +37,16 @@ export function editMovie(id ,title, year, genre, runtime, director, poster) {
   return { type: EDIT_MOVIE, id, title, year, genre, runtime, director, poster }
 }
 
+export function deleteMovie(id) {
+  return { type: REMOVE_MOVIE, id }
+}
 
 export function selectMovie(id) {
   return { type: SELECT_MOVIE, id }
+}
+
+export function clearSelectedId() {
+  return { type: CLEAR_SELECTED}
 }
 
 export function filterMovies(searchText) {
